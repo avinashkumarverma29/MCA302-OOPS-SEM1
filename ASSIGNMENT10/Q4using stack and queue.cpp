@@ -1,29 +1,30 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <stack>
+#include <queue>
 using namespace std;
 
 int main() {
-    vector<int> vec = {45, 12, 89, 23, 56, 7};
+    // --- STACK (LIFO: Last In, First Out) ---
+    stack<int> s;
+    s.push(10);
+    s.push(20);
+    s.push(30);
 
-    // Sort the vector
-    sort(vec.begin(), vec.end());
+    cout << "--- Stack Operations ---" << endl;
+    cout << "Top element: " << s.top() << endl; // Should be 30
+    s.pop();
+    cout << "Top element after pop: " << s.top() << endl; // Should be 20
 
-    cout << "Sorted vector: ";
-    for (int val : vec) {
-        cout << val << " ";
-    }
-    cout << endl;
+    // --- QUEUE (FIFO: First In, First Out) ---
+    queue<int> q;
+    q.push(100);
+    q.push(200);
+    q.push(300);
 
-    int key = 23;
-    // binary_search requires the range to be sorted first
-    bool found = binary_search(vec.begin(), vec.end(), key);
-
-    if (found) {
-        cout << "Element " << key << " found in the vector." << endl;
-    } else {
-        cout << "Element " << key << " not found in the vector." << endl;
-    }
+    cout << "\n--- Queue Operations ---" << endl;
+    cout << "Front element: " << q.front() << endl; // Should be 100
+    q.pop();
+    cout << "Front element after pop: " << q.front() << endl; // Should be 200
 
     return 0;
 }
